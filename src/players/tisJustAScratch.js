@@ -115,6 +115,16 @@ var javierbyte = {
         return action;
     }
 
+    var fastGetDirection = (start = [], end = []) => {
+        var diffVertical = Math.abs(start[0] - end[0]);
+        var diffHorizontal = Math.abs(start[1] - end[1]);
+    
+        if (diffVertical > diffHorizontal) {
+            return (start[0] - end[0] > 0) ? 'north' : 'south';
+        }
+        return (start[1] - end[1] > 0) ? 'west' : 'east';
+    };
+
     if (utils.canKill(playerState, enemiesState) && playerState.ammo) {
       return 'shoot';
     }
@@ -155,12 +165,19 @@ var javierbyte = {
                 closestEnemyIndex = i;
             }
         }
-        var desiredDirection = utils.fastGetDirection(playerState.position, enemiesState[closestEnemyIndex].position);
+        var desiredDirection = fastGetDirection(playerState.position, enemiesState[closestEnemyIndex].position);
 
         if (desiredDirection == playerState.direction) {
-            if (diffVertical > 1 &&
-                diffHorizontal > 1)
-            return 'move'
+            
+            if(enemiesState[closestEnemyIndex].ammo) {
+                if ((diffVertical > 1 && (desiredDirection == 'north' || desiredDirection == 'south')) ||
+                    (diffHorizontal > 1 && (desiredDirection == 'east' || desiredDirection == 'west'))) {
+                    return 'move'
+                }
+            } else {
+                return 'move';
+            }
+            
         }
 
         return desiredDirection;
