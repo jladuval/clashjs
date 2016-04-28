@@ -7,4 +7,5 @@ module.exports = {
   potato: require('./players/potato.js'),
   stayradiated: require('./players/stayradiated.js'),
   tisJustAScratch: require('./players/tisJustAScratch.js'),
+  mclovinit: require('./players/mclovinit.js'),
 }
