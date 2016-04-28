@@ -6,5 +6,6 @@ module.exports = {
   Ψ: require('./players/psiphi.js'),
   potato: require('./players/potato.js'),
   stayradiated: require('./players/stayradiated.js'),
-  tisJustAScratch: require('./players/scratch.js'),
+  scratch: require('./players/scratch.js'),
+  mclovinit: require('./players/mclovinit.js'),
 }
