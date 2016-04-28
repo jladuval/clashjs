@@ -8,4 +8,5 @@ module.exports = {
   stayradiated: require('./players/stayradiated.js'),
   scratch: require('./players/scratch.js'),
   mclovinit: require('./players/mclovinit.js'),
+  james_bond: require('./players/james_bond.js')
 }
