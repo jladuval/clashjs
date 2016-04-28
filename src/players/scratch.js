@@ -3,8 +3,8 @@ var DIRECTIONS = ['north', 'east', 'south', 'west'];
 
 var javierbyte = {
   info: {
-    name: 'Tis Just a Scratch',
-    style: 3
+    name: 'Scratch',
+    style: 2
   },
   ai: (playerState, enemiesState, gameEnvironment) => {
     function invertDirection() {
