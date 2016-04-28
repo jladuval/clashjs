@@ -98,13 +98,13 @@ var Beer = {
 
     playerState.position = nextPos;
 
-    var killer = enemiesStates.find(function(state){
+    var killers = enemiesStates.filter(function(state){
       var canKill = utils.canKill(state, [playerState]);
       var hasAmmo = state.ammo;
       return canKill && hasAmmo && state.isAlive;
     });
 
-    if (killer) {
+    if (killers.length) {
       return playerState.direction;
     }
 
